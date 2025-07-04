@@ -11,21 +11,34 @@
 		<meta content="https://xendyexe.github.io/" property="og:url" />
 		<meta content="https://xendyexe.github.io/fomx.jpg" property="og:image" />
 		<meta content="#ff7aac" data-react-helmet="true" name="theme-color" />
+		<meta name="description" content="This the main website for Xendy (XendyOS/XendyExe) where she puts a bunch of random stuff.">
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
 	</head>
 	<body>
-		<div class="screen-too-small-warning"> 
+		<div class="failed-to-render"> 
 			<h1>Failed to render</h1>
-			<p>Your screen is too small to properly render this 3: Please zoom out to see this page !!</p>
+			<p>I cannot render this website for you ;w;</p>
 			<h2>Issues:</h2>
-			<div class="screen-too-small-warning-width">
-				Screen width less than 320 px !!
+			<div class="screen-too-small-warning-width warning-title">
 			</div>
-			<div class="screen-too-small-warning-height">
-				Screen height less than 270 px !!
+			<div class="screen-too-small-warning-height warning-title">
+				Your screen height is less than 270 px !!
 			</div>
+			<div class="no-firefox">
+				<div class="warning-title">This website does not support firefox</div>
+				I dont support firefox due to their rendering being <strong>extremely laggy</strong> with framer motion 3: (see: <a href="https://github.com/motiondivision/motion/issues/441">Motion issue 441</a>)<br/>
+				Consider switching to chromium ! <br/>
+				The majority of this page uses motion. <br/>
+				<strong>If you really wish to continue, click <a id="force-enable" href="">here</a></strong>
+			</div>
+			<script>
+				document.getElementById("force-enable")!.addEventListener("click", (e) => {
+					e.preventDefault();
+					document.body.classList.add("ignore-firefox-warning");
+				});
+			</script>
 		</div>
 		<noscript>
 			You need javascript to render this !!
@@ -47,8 +60,19 @@
 	.silly-main-content {
 		display: block;
 	}
-	.screen-too-small-warning {
+	.warning-title {
+		font-size:30px
+	}
+	.failed-to-render {
 		display: none;
+		justify-content: center;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background-color: black;
+		color: white;
+		flex-direction: column;
+		align-items: center;
 		padding: 4px;
 	}
 	.screen-too-small-warning-width {
@@ -57,21 +81,16 @@
 	.screen-too-small-warning-height {
 		display: none
 	}
+	.no-firefox {
+		text-align: center;
+		display: none;
+	}
 	@media (max-width: 320px) {
 		.silly-main-content {
 			display: none;
 		}
-		.screen-too-small-warning {
-        	display: flex;
-			justify-content: center;
-			position: absolute;
-			width: 100%;
-			height: 100%;
-			overflow: hidden;
-			background-color: black;
-			color: white;
-			flex-direction: column;
-			align-items: center;
+		.failed-to-render {
+			display: flex;
 		}
 		.screen-too-small-warning-width {
 			display: block;
@@ -81,20 +100,26 @@
 		.silly-main-content {
 			display: none;
 		}
-		.screen-too-small-warning {
-        	display: flex;
-			justify-content: center;
-			position: absolute;
-			width: 100%;
-			height: 100%;
-			overflow: hidden;
-			background-color: black;
-			color: white;
-			flex-direction: column;
-			align-items: center;
+		.failed-to-render {
+			display: flex;
 		}
 		.screen-too-small-warning-height {
 			display: block;
 		}
     }
+	@supports (-moz-appearance: none) {
+		body:not(.ignore-firefox-warning) .silly-main-content {
+			display: none;
+		}
+		body:not(.ignore-firefox-warning) .failed-to-render {
+			display: flex;
+		}
+		body:not(.ignore-firefox-warning) .no-firefox {
+			display: block;
+		}
+	}
+	body.ignore-firefox-warning .no-firefox {
+		display: none !important;
+	}
+
 </style>

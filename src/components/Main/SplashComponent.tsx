@@ -8,14 +8,12 @@ import BlueskyIcon from '../assets/bsky.svg?raw';
 import DiscordIcon from '../assets/discord.svg?raw';
 import GithubIcon from '../assets/github.svg?raw';
 
-const getRandomDelay = (): number => Math.random() * 3 + 0.5; // Random delay between 0.5 and 3.5 seconds
-
 const SplashComponent: React.FC = () => {
 
   const bobTransition = {
     duration: 25,
     repeat: Infinity,
-    ease: "linear", // Smooth ease out at the start and end
+    ease: "linear", 
   };
 
   const bobAmount = 10;
