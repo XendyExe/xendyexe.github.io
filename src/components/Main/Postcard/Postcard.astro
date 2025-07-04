@@ -1,0 +1,374 @@
+---
+import { Image } from "astro:assets";
+import BackgroundCloud from "../Background/BackgroundCloud.astro";
+import Stamp from "@assets/stamp.png";
+import StatCurrentTime from "./StatCurrentTime";
+---
+<div class="introduction-container">
+    <div class="introduction-margin">
+        <div>
+            <div class="postcard">
+                <div class="postcard-overlay stamp-container">
+                    <div class="stamp">
+                        <div class="stamp-border">
+                            <Image src={Stamp} alt="Postcard Stamp" style={{transform: "translate(-100px, -20px)"}}></Image>
+                        </div>
+                    </div>
+                </div>
+                <div class="postcard-overlay postcard-anchor-top-right">
+                    <BackgroundCloud classList="postcard-cloud" width={1000} height={500} color={"#e9c4b2"} x={-800} y={300} r={-20} a={40} blur={30}/>
+                    <BackgroundCloud classList="postcard-cloud" width={800} height={300} color={"#e9c4b2"} x={-600} y={200} r={-20} a={30} blur={2}/>
+                    <BackgroundCloud classList="postcard-cloud" width={1000} height={600} color={"#e9c4b2"} x={-900} y={300} r={45} a={10} blur={10}/>
+                </div>
+                <div class="postcard-overlay postcard-anchor-bottom-left">
+                    <BackgroundCloud classList="postcard-cloud" width={1000} height={500} color={"#e9c4b2"} x={-300} y={200} r={30} a={30} blur={30}/>
+                    <BackgroundCloud classList="postcard-cloud" width={700} height={300} color={"#e9c4b2"} x={-300} y={200} r={30} a={30} blur={2}/>
+                </div>
+                <div class="postcard-overlay postcard-anchor-bottom-left inside-border">Postcard~</div>
+                <div class="postcard-overlay postcard-anchor-bottom-right inside-border-deco">
+                    <svg id="a" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38.93 39.71" width="32px" height="32px">
+                        <path d="M3.01,34.52c-.52-1.86,29.87-32.41,32.28-31.5.81.31.77,30.15.31,31.5-1.37,3.98-32.13,1.63-32.59,0Z" fill="none" stroke="#d8b5af" stroke-miterlimit="10" stroke-width="5"/>
+                        <path d="M18.22,35.81c1.44-2.94,3.76-6.9,7.43-10.89,4-4.35,8.11-7.12,11.09-8.8" fill="none" stroke="#d8b5af" stroke-miterlimit="10" stroke-width="5"/>
+                    </svg>
+                </div>
+                <div class="postcard-border">
+                    <div class="border-header">
+                         <div class="header-text"><span style={{transform: "translate(0, 20px)"}}>From: Xendy</span></div>
+                        <div class="border-line"/>
+                        <div class="header-text"></div>
+                        <div class="border-line"/>
+                    </div>
+                    <div class="content">
+                        <div class="stats"> 
+                            <div class="stats-grid" role="table">
+                                <div role="columnheader" class="stats-heading" style="grid-column: 1 / -1">
+                                    About me !
+                                </div>
+                                <div class="stats-row" role="row">
+                                    <div class="stats-entry stats-label" role="cell">Name</div>
+                                    <div class="stats-entry stats-value" role="cell"><span>Xendy <span class="stats-other">aka Kiryaa</span></span></div>
+                                </div>
+                                <div class="stats-row" role="row">
+                                    <div class="stats-entry stats-label" role="cell">Location</div>
+                                    <div class="stats-entry stats-value" role="cell">USA / Washington</div>
+                                </div>
+                                <div class="stats-row" role="row">
+                                    <div class="stats-entry stats-label" role="cell">Time</div>
+                                    <div class="stats-entry stats-value" role="cell"><StatCurrentTime client:load/></div>
+                                </div>
+                                <div class="stats-row" role="row">
+                                    <div class="stats-entry stats-label" role="cell">gg</div>
+                                    <div class="stats-entry stats-value" role="cell">data</div>
+                                </div>
+                                <div class="stats-row" role="row">
+                                    <div class="stats-entry stats-label" role="cell">meow asdf</div>
+                                    <div class="stats-entry stats-value" role="cell">data</div>
+                                </div>
+                                <div class="stats-row" role="row">
+                                    <div class="stats-entry stats-label" role="cell">meow asdf</div>
+                                    <div class="stats-entry stats-value" role="cell">data</div>
+                                </div>
+                                <div class="stats-row" role="row">
+                                    <div class="stats-entry stats-label" role="cell">meow asdf</div>
+                                    <div class="stats-entry stats-value" role="cell">data</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="seperator"/>
+                        <div class="quick-access">
+                            <div class="blurb">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tristique massa non metus lacinia dignissim. Fusce mattis, augue eu sodales viverra, erat libero finibus dolor, rhoncus commodo dui dui. 
+                            </div>
+                            <div class="quick-access-seperator"/>
+                            <div class="actual-quick-access">
+                                <div class="quick-access-title">Quick Access:</div>
+                                <div class="quick-access-buttons">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="introduction-buffer"/>
+</div>
+<style is:global> 
+    .stats-other {
+        margin-left: 3px;
+        font-size: 10px;
+    }
+</style>
+<style>
+    .quick-access-title {
+        width: 100%;
+        text-align: center;
+        font-weight: bold;
+        font-size: 24px;
+    }
+    .quick-access-buttons {
+
+    }
+    .stats-entry {
+        display: flex;
+        align-items: center;
+    }
+    .stats-heading {
+        text-align: center;
+        font-weight: bold;
+        padding: 8px;
+        border: 1px solid #ba988f;
+        font-size: 24px;
+    }
+    .stats-grid {
+        display: grid;
+        width: 340px;
+        height: 320px;
+        grid-template-columns: auto 1fr;
+        grid-auto-rows: 1fr;
+        border-collapse: collapse;
+        border: 2px solid #ba988f;
+    }
+
+    .stats-row {
+        display: contents;
+    }
+
+    .stats-label {
+        font-weight: bold;
+        grid-column: 1;
+        padding: 4px;
+        border: 1px solid #ba988f;
+        white-space: nowrap;
+    }
+
+    .stats-value {
+        grid-column: 2;
+        padding: 4px;
+        border: 1px solid #ba988f;
+    }
+    .content {
+        padding: 16px;
+        color: #655c57;
+        width: 100%;
+        font-size: 18px;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 16px; /* optional spacing */
+        flex-wrap: wrap;
+    }
+    .stats, .quick-access {
+        flex: 1 1 0;
+        min-width: 0;
+    }
+    .stats {
+        width: 100%;
+        max-width: 340px;
+        height: 320px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow-y: hidden;
+        overflow-x: hidden;
+    }
+    .seperator {
+        flex: 0 0 auto;
+        background-color: #d8b5af;
+        width: 4px;
+        height: 320px;
+    }
+    .quick-access-seperator {
+        flex: 0 0 auto;
+        width: 100%;
+        height: 4px;
+        background-color: #d8b5af;
+    }
+    .quick-access {
+        width: 340px;
+        height: 320px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .blurb {
+        width: 100%;
+        height: 150px;
+    }
+    .actual-quick-access {
+        width: 100%;
+        height: 150px;
+
+    }
+
+    .inside-border-deco {
+        padding: 24px;
+    }
+    .inside-border {
+        padding: 24px;
+        padding-bottom: 18px;
+        font-size: 32px;
+        font-family: "Nanum Pen Script", "Lexend", cursive, Arial, Helvetica, sans-serif;
+        color: #ba988f;
+    }
+    .header-text {
+        color: #ba988f;
+        font-size: 45px;
+        height: 35px;
+        display: flex;
+        align-items: flex-end;
+        font-family: "Nanum Pen Script", "Lexend", cursive, Arial, Helvetica, sans-serif;
+    }
+    .border-line {
+        width: 300px;
+        height: 3px;
+        border-radius: 20px;
+        background-color: #ba988f;
+    }
+    .border-header {
+        height: 110px;
+        width: 100%;
+        overflow: hidden;
+        padding-left: 16px;
+        padding-top: 12px;
+    }
+    .stamp-border {
+        border: #d8b5af solid 6px;
+        border-radius: 2px;
+        width: 100%;
+        height: 100%;
+    }
+    .stamp {
+        width: 155px;
+        height: 125px;
+        padding: 6px;
+        background-color: #f0e7e0;
+        border-radius: 2px;
+        transform: translate(-10px, 10px) rotate(-2deg);
+    }
+    .postcard-anchor-bottom-right {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-end;
+        flex-wrap: nowrap;
+    }
+    .postcard-anchor-bottom-left {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-start;
+        flex-wrap: nowrap;
+    }
+    .postcard-anchor-top-right, .stamp-container {
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: flex-end;
+        align-items: flex-end;
+        flex-wrap: nowrap;
+    }
+    .postcard-border {
+        width: 100%;
+        height: 100%;
+        border: 6px solid #d8b5af;
+        border-radius: 2px;
+    }
+    .postcard {
+        position: relative;
+        background-color: #f0e7e0;
+        transform: rotate(-2deg);
+        padding: 16px;
+        color: black;
+        filter: drop-shadow(0 0 4vw black);
+        border-radius: 2px;
+
+    }
+     .postcard-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        pointer-events: none;
+     }
+    .postcard {
+        width: 95vw;
+        max-width: 800px;
+        height: 533px;
+    }
+    .introduction-container {
+        width: 100vw;
+        height: 100vh;
+        min-height: 1000px;
+        display: flex;
+    }
+    .introduction-margin {
+        width: 50vw;
+        height: 100%;
+        display: flex;
+        align-items:center;
+        justify-content:center;
+    }
+    .introduction-buffer {
+        width: 50vw;
+        height: 100%;
+        display: block;
+    }
+
+	@media (max-width: 1700px) {
+        .introduction-margin {
+            width: 100vw;
+            height: 100%;
+        }
+        .introduction-buffer {
+            display: none;
+        }
+    }
+    @media (max-width: 900px) {
+        .postcard {
+            transform: rotate(0);
+            height: auto;
+            min-height: 533px;
+            display: flex;
+            flex-direction: column;
+        }
+        .postcard-overlay {
+            height: 100%;
+            min-height: 533px;
+        }
+        .postcard-border {
+            padding-bottom: 32px;
+            flex: 1;
+        }
+        .seperator {
+            width: 100%;
+            height: 4px;
+        }
+        .content {
+            flex-direction: column;
+            align-items: center;
+        }
+        .stats, .quick-access {
+            width: 100%;
+            min-height: 320px;
+        }
+    }
+    @media (max-width: 540px) {
+        .stamp-container {
+            display: none;
+        }
+    }
+    @media (max-width: 450px) {
+        .stats {
+            align-items: flex-start;
+            overflow-x: auto;
+            overflow-y: auto;
+            height: 340px;
+        }
+    }
+</style> 

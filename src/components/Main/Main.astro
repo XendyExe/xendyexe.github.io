@@ -1,0 +1,81 @@
+---
+import Background from "./Background/Background.astro";
+import SplashComponent from './Splash/SplashComponent';
+import BackgroundCloud from "./Background/BackgroundCloud.astro";
+import Postcard from "./Postcard/Postcard.astro";
+---
+
+<div class="main">
+    <Background/>
+    <div class="content"> 
+        <SplashComponent client:load/>
+        <Postcard/>
+        <!-- todo: music thing -->
+        <div style="width:100vw;height:70vh;border:2px red solid;"/>
+        <!-- todo: Coding thing -->
+        <div style="width:100vw;height:100vh;border:2px pink solid;"/>
+        <!-- todo: art thing -->
+        <div style="width:100vw;height:100vh;border:2px purple solid;"/>
+        <div class="footer"></div>
+    </div>
+</div>
+
+<style is:global>
+    .debug {
+
+    }
+    .footer {
+        height: 30vh;
+        bottom: 0;
+        width: 100%;
+        background-color: #000000;
+        z-index: 0;
+    }
+	* {
+		box-sizing: border-box
+	}
+    .main {
+        color:white;
+    }
+    .content {
+        overflow-x: hidden;
+    }
+    .splash {
+        --framing-padding: 2rem;
+        width: 100%;    
+        height: 100vh;
+        position:relative;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        flex-wrap: wrap;
+    }
+    .splash-framing {
+        width: 100px;
+        height: 100px;
+    }
+
+    .splash-bottom-left-framing {
+        color:#FFEDAD;
+        position:absolute;
+        bottom: var(--framing-padding);
+        left: var(--framing-padding);
+    }
+    .splash-top-right-framing {
+        align-self: center;
+        margin: auto; 
+        rotate: 180deg;
+        position:absolute;
+        top: var(--framing-padding);
+        right: var(--framing-padding);
+    }
+    .splash-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .splash-drop-shadow {
+        filter: drop-shadow(0px 0px 32px #ffadcf);
+    }
+</style>
