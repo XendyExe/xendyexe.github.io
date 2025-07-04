@@ -31,12 +31,14 @@ const SplashComponent: React.FC = () => {
   return (
     <div className="splash splash-drop-shadow" style={{opacity:"90%"}}>
       <motion.img
+        fetchPriority="high"
         src={frame.src}
         className="splash-bottom-left-framing splash-framing"
         animate={blframing}
         transition={bobTransition}
       />
       <motion.img
+        fetchPriority="high"
         src={frame.src}
         className="splash-top-right-framing splash-framing"
         animate={trframing}
