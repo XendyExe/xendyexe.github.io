@@ -34,11 +34,7 @@ const Stars: React.FC<StarsProps> = (props) => {
         const stars = svgRef.current;
         const parallaxValue = props.parallax;
 
-        const anim = animate(
-        stars!,
-        { transform: [`translate(0px, 0px)`, `translate(0px, ${-parallaxValue}px)`] },
-        { ease: "linear" }
-        );
+        const anim = animate(stars!, { transform: [`translate(0px, 0px)`, `translate(0px, ${-parallaxValue}px)`] },{ ease: "linear" });
         scroll(anim);
         containerRef.current!.style.opacity = "100%";
     }, [svgRef.current]);
@@ -47,28 +43,16 @@ const Stars: React.FC<StarsProps> = (props) => {
         display: "flex",
         justifyContent: "center",
         alignContent: "center",
-        opacity: 0,
+        opacity: "0",
         transition: "opacity 2s linear"
     }} ref={containerRef}><motion.svg ref={svgRef}className={selfClass} width={width} height={height} viewBox={`0 0 ${width} ${height}`} style={{width: "100vw", opacity: props.opacity, height: "auto", minWidth: `${width}px`}}>
     {
-        ...starData.map((star, index)=><motion.circle
+        ...starData.map((star, index)=><circle
                 key={index}
                 cx={star.x}
                 cy={star.y}
                 r={star.r}
-                fill={color}
-                initial={{ r: star.r }}
-                animate={{
-                    r: [star.r*0.75, star.r * 1.25, star.r*0.75],
-                }}
-                transition={{
-                duration: 5,
-                repeat: Infinity,
-                repeatType: "mirror",
-                delay: Math.random()*5
-            }}
-        >
-        </motion.circle>)
+                fill={color}/>)
     }
 </motion.svg></motion.div>
 }
