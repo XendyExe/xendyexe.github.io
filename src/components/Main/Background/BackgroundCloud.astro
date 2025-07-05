@@ -31,8 +31,9 @@ const styles = {
     objectFit: "none"
 }
 if (props.parallax) {
+    console.log("Applying custom css")
     // @ts-ignore
-    styles["--xendy-parallax"] = `${props.parallax}px`
+    parentStyles["--xendy-parallax"] = `${-props.parallax}px`
 }
 ---
 

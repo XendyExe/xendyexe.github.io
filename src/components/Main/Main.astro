@@ -9,6 +9,11 @@ import Postcard from "./Postcard/Postcard.astro";
     <Background />
     <div class="content">
         <SplashComponent/>
+        <div class="firefox-warning">
+            <div class="firefox-title">This website is worse on Firefox</div>
+            <div class="firefox-subtitle">Best experianced with a Chromium based browser</div>
+            <div class="firefox-subtitle">Firefox's performance on this site is much worse for seemingly no reason, along with not having capabilities like scroll() by default.</div>
+        </div>
         <div style="width:100vw;height:30vh;background-color:#ffe08c;display:flex;align-items:center;color:black;flex-direction:column;justify-content: center;">
             <div style="font-size:50px;text-align:center;">This website is still UNDER DEVELOPMENT</div>
             <div style="text-align:center;">like nothing is done ;w;<br />Keep that in mind if you are looking !</div>
@@ -23,6 +28,29 @@ import Postcard from "./Postcard/Postcard.astro";
         <div class="footer"></div>
     </div>
 </div>
+<style> 
+    .firefox-warning {
+        width: 100vw;
+        min-height: 10vh;
+        background-color: red;
+        display: none;
+        align-items: center;
+        color: black;
+        flex-direction: column;
+        padding: 8px;
+    }
+    .firefox-subtitle {
+        text-align: center;
+    }
+    .firefox-title {
+        font-size: 32px;
+    }
+    @supports (-moz-appearance: none) {
+        .firefox-warning {
+            display: flex;
+        }
+	}
+</style>
 
 <style is:global>
     @keyframes xendy-parallax-keyframes {
@@ -38,6 +66,12 @@ import Postcard from "./Postcard/Postcard.astro";
         animation-timeline: scroll();
         animation-fill-mode: both;
     }
+    
+	@supports (-moz-appearance: none) {
+        .xendy-parallax {
+            animation: none;
+        }
+	}
     .debug {
     }
     .footer {

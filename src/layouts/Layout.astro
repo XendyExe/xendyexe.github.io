@@ -27,21 +27,6 @@
 			<div class="screen-too-small-warning-height warning-title">
 				Your screen height is less than 270 px !!
 			</div>
-			<div class="no-firefox">
-				<div class="warning-title">This website does not support firefox</div>
-				<strong>This website also uses scroll based animations, which do not work on firefox*</strong><br/>
-				Consider switching to chromium ! <br/>
-				<strong>If you really wish to continue, click <a id="force-enable" href="">here</a></strong>
-				<br/>
-				<br/>
-				*You may be able to enable scroll based animations in the layout.css.scroll-driven-animations.enabled preference. To change preferences in Firefox, visit about:config
-			</div>
-			<script>
-				document.getElementById("force-enable")!.addEventListener("click", (e) => {
-					e.preventDefault();
-					document.body.classList.add("ignore-firefox-warning");
-				});
-			</script>
 		</div>
 		<noscript>
 			You need javascript to render this !!
@@ -110,19 +95,5 @@
 			display: block;
 		}
     }
-	@supports (-moz-appearance: none) {
-		body:not(.ignore-firefox-warning) .silly-main-content {
-			display: none;
-		}
-		body:not(.ignore-firefox-warning) .failed-to-render {
-			display: flex;
-		}
-		body:not(.ignore-firefox-warning) .no-firefox {
-			display: block;
-		}
-	}
-	body.ignore-firefox-warning .no-firefox {
-		display: none !important;
-	}
 
 </style>
