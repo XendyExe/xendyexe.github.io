@@ -29,10 +29,13 @@
 			</div>
 			<div class="no-firefox">
 				<div class="warning-title">This website does not support firefox</div>
-				I dont support firefox due to their rendering being <strong>extremely laggy</strong> with framer motion 3: (see: <a href="https://github.com/motiondivision/motion/issues/441">Motion issue 441</a>)<br/>
+				<strong>This website also uses scroll based animations, which do not work on firefox*</strong><br/>
+				Firefox is also <strong>extremely laggy</strong> with framer motion 3: (see: <a href="https://github.com/motiondivision/motion/issues/441">Motion issue 441</a>)<br/>
 				Consider switching to chromium ! <br/>
-				The majority of this page uses motion. <br/>
 				<strong>If you really wish to continue, click <a id="force-enable" href="">here</a></strong>
+				<br/>
+				<br/>
+				*You may be able to enable scroll based animations in the layout.css.scroll-driven-animations.enabled preference. To change preferences in Firefox, visit about:config
 			</div>
 			<script>
 				document.getElementById("force-enable")!.addEventListener("click", (e) => {

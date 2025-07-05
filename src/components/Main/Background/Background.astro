@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import BackgroundCloud from "./BackgroundCloud.astro";
-import Stars from "./Stars";
+import Stars from "./Stars.astro";
 import XendyBG from "@assets/xendybg.png"
 // <BackgroundCloud width={20} height={20} color={"#FFFFFF"} x={0} y={0} r={0} a={100} blur={0}/>
 ---
@@ -10,46 +10,46 @@ import XendyBG from "@assets/xendybg.png"
 <div class="background">
     <div class="background-wrapper">
         <div class="background-container">
-            <Stars client:only="react" starDensity={0.000025} parallax={50} size={2} opacity="30%"/>
-            <BackgroundCloud classList="bg-prx-slow" width={500} height={500} color={"#FFFFFF"} x={-100} y={200} r={0} a={10} blur={5}/>
-            <Stars client:only="react"  starDensity={0.000005} parallax={100} size={4} opacity="50%"/>
-            <BackgroundCloud classList="bg-prx-medium" width={1500} height={700} color={"#9E2A8F"} x={-100} y={300} r={0} a={43} blur={15}/>
-            <BackgroundCloud classList="bg-prx-medium" width={504} height={500} color={"#792744"} x={-200} y={-100} r={118} a={50} blur={10}/>
-            <BackgroundCloud classList="bg-prx-medium" width={1500} height={700} color={"#9E2A8F"} x={-300} y={-800} r={180} a={43} blur={15}/>
-            <Stars client:only="react"  starDensity={0.00005} parallax={125} size={2} opacity="60%"/>
-            <BackgroundCloud classList="bg-prx-medium" width={504} height={500} color={"#792744"} x={0} y={-900} r={118} a={50} blur={10}/>
-            <Stars client:only="react"  starDensity={0.00005} parallax={150} size={6} opacity="40%"/>
+            <Stars starDensity={0.000025} parallax={50} size={2} opacity="30%"/>
+            <BackgroundCloud classList="xendy-parallax" parallax={1000} width={500} height={500} color={"#FFFFFF"} x={-100} y={200} r={0} a={10} blur={5}/>
+            <Stars  starDensity={0.000005} parallax={100} size={4} opacity="50%"/>
+            <BackgroundCloud classList="xendy-parallax" parallax={1000} width={1500} height={700} color={"#9E2A8F"} x={-100} y={300} r={0} a={43} blur={15}/>
+            <BackgroundCloud classList="xendy-parallax" parallax={1000} width={504} height={500} color={"#792744"} x={-200} y={-100} r={118} a={50} blur={10}/>
+            <BackgroundCloud classList="xendy-parallax" parallax={1000} width={1500} height={700} color={"#9E2A8F"} x={-300} y={-800} r={180} a={43} blur={15}/>
+            <Stars  starDensity={0.00005} parallax={125} size={2} opacity="60%"/>
+            <BackgroundCloud classList="xendy-parallax" parallax={1000} width={504} height={500} color={"#792744"} x={0} y={-900} r={118} a={50} blur={10}/>
+            <Stars starDensity={0.00005} parallax={150} size={6} opacity="40%"/>
         </div>
     </div>
     <div class="background-wrapper center">
         <div class="background-container">
-            <BackgroundCloud classList="bg-prx-slow" width={1008} height={720} color={"#ADD4FF"} x={-504} y={350} r={0} a={5} blur={10}/>
-            <BackgroundCloud classList="bg-prx-medium" width={1008} height={720} color={"#ADD4FF"} x={-504} y={600} r={92} a={6} blur={15}/>
+            <BackgroundCloud classList="xendy-parallax" parallax={500} height={720} color={"#ADD4FF"} x={-504} y={350} r={0} a={5} blur={10}/>
+            <BackgroundCloud classList="xendy-parallax" parallax={1000} width={1008} height={720} color={"#ADD4FF"} x={-504} y={600} r={92} a={6} blur={15}/>
         </div>
     </div>
     <div class="background-wrapper bottom-left">
         <div class="background-container">
-            <BackgroundCloud classList="bg-prx-medium" width={1900} height={1000} color={"#1F2658"} x={-800} y={50} r={15} a={30} blur={15}/>
+            <BackgroundCloud classList="xendy-parallax" parallax={1000} width={1900} height={1000} color={"#1F2658"} x={-800} y={50} r={15} a={30} blur={15}/>
         </div>
     </div>
     <div class="background-wrapper bottom-right">
         <div class="background-container">
-            <BackgroundCloud classList="bg-prx-slow" width={1500} height={1500} color={"#1F2658"} x={-900} y={100} r={204} a={54} blur={20}/>
-            <BackgroundCloud classList="bg-prx-medium" width={1500} height={1500} color={"#171d4a"} x={-400} y={400} r={253} a={43} blur={20}/>
+            <BackgroundCloud classList="xendy-parallax" parallax={500} width={1500} height={1500} color={"#1F2658"} x={-900} y={100} r={204} a={54} blur={20}/>
+            <BackgroundCloud classList="xendy-parallax" parallax={1000} width={1500} height={1500} color={"#171d4a"} x={-400} y={400} r={253} a={43} blur={20}/>
         </div>
     </div>
     <div class="background-wrapper center-middle"> 
         <div class="background-container">
-            <BackgroundCloud classList="bg-prx-fast" width={600} height={4000} color={"#7ae4ff"} x={-300} y={2000} r={60} a={20} blur={50}/>
-            <BackgroundCloud classList="bg-prx-fast" width={300} height={4000} color={"#95a7bd"} x={-150} y={2000} r={64} a={20} blur={50}/>
-            <BackgroundCloud classList="bg-prx-fast" width={400} height={4000} color={"#FF7AAC"} x={-200} y={2000} r={56} a={40} blur={20}/>
-            <BackgroundCloud classList="bg-prx-fast" width={200} height={4000} color={"#FFFFFF"} x={-100} y={2000} r={60} a={15} blur={5}/>
-            <BackgroundCloud classList="bg-prx-fast" width={100} height={1000} color={"#FFFFFF"} x={-400} y={400} r={60} a={5} blur={5}/>
+            <BackgroundCloud classList="xendy-parallax" parallax={2000} width={600} height={4000} color={"#7ae4ff"} x={-300} y={2000} r={60} a={20} blur={50}/>
+            <BackgroundCloud classList="xendy-parallax" parallax={2000} width={300} height={4000} color={"#95a7bd"} x={-150} y={2000} r={64} a={20} blur={50}/>
+            <BackgroundCloud classList="xendy-parallax" parallax={2000} width={400} height={4000} color={"#FF7AAC"} x={-200} y={2000} r={56} a={40} blur={20}/>
+            <BackgroundCloud classList="xendy-parallax" parallax={2000} width={200} height={4000} color={"#FFFFFF"} x={-100} y={2000} r={60} a={15} blur={5}/>
+            <BackgroundCloud classList="xendy-parallax" parallax={2000} width={100} height={1000} color={"#FFFFFF"} x={-400} y={400} r={60} a={5} blur={5}/>
         </div>
     </div>
     <div class="background-wrapper center-right">
         <div class="background-container">
-            <div class="bg-fomx-container"> 
+            <div class="bg-fomx-container xendy-parallax" style="--xendy-parallax: -200vh"> 
                 <div class="bg-fomx-container-animation" style={{
                     transform: `translate(921px, 0px)`,
                     transition: `transform 1.5s cubic-bezier(.15,.58,.17,.99)`
@@ -69,35 +69,6 @@ import XendyBG from "@assets/xendybg.png"
     let backgroundAnimations = []
   
     console.log("meow !");
-    const DOMContentLoaded = () => {
-        console.log("hello bg~");
-        const getSlowPX = () => { return 500 + ((Math.random() * 2 - 1) * 100); }
-        const getMediumPX = () => { return 1000 + ((Math.random() * 2 - 1) * 500); }
-        const getFastPX = () => { return 2000 + ((Math.random() * 2 - 1) * 400); }
-        document.querySelectorAll(".bg-prx-slow").forEach(elm => {
-            let anim = animate(elm, { transform: [`translate(0px, 0px)`, `translate(0px, ${-getSlowPX()}px)`] }, { ease: "linear" });
-            backgroundAnimations.push(anim)
-            scroll(anim);
-        });
-
-        document.querySelectorAll(".bg-prx-medium").forEach(elm => {
-            let anim = animate(elm, { transform: [`translate(0px, 0px)`, `translate(0px, ${-getMediumPX()}px)`] }, { ease: "linear" });
-            backgroundAnimations.push(anim)
-            scroll(anim);
-        });
-
-        document.querySelectorAll(".bg-prx-fast").forEach(elm => {
-            let anim = animate(elm, { transform: [`translate(0px, 0px)`, `translate(0px, ${-getFastPX()}px)`] }, { ease: "linear" });
-            backgroundAnimations.push(anim)
-            scroll(anim);
-        });
-
-        let fomx = document.querySelector(".bg-fomx-container")!;
-        let anim = animate(fomx, { transform: [`translate(0px, 0px)`, `translate(0px, ${-200}vh)`] }, { ease: "linear" });
-        scroll(anim)
-    }
-    if (document.readyState === "loading") window.addEventListener("DOMContentLoaded", DOMContentLoaded);
-    else DOMContentLoaded();
     let fomxImage: HTMLImageElement = document.querySelector(".bg-fomx")!;
     function fomxLoaded() {
         if (loaded) return;
@@ -112,6 +83,7 @@ import XendyBG from "@assets/xendybg.png"
 
   </script>
 <style>
+
     .bg-fomx {
         --bg-fomx-top-margin: -40vh;
         transform: translate(0, var(--bg-fomx-top-margin));

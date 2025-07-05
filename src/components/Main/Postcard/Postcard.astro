@@ -4,7 +4,7 @@ import BackgroundCloud from "../Background/BackgroundCloud.astro";
 import Stamp from "@assets/stamp.png";
 import StatCurrentTime from "./StatCurrentTime";
 ---
-<div class="introduction-container">
+<div id="postcard-main" class="introduction-container">
     <div class="introduction-margin">
         <div>
             <div class="postcard">
@@ -83,6 +83,9 @@ import StatCurrentTime from "./StatCurrentTime";
                             <div class="actual-quick-access">
                                 <div class="quick-access-title">Quick Access:</div>
                                 <div class="quick-access-buttons">
+                                    <button class="quick-access-button">music things</button>
+                                    <button class="quick-access-button">arts things</button>
+                                    <button class="quick-access-button">programming things</button>
                                     
                                 </div>
                             </div>
@@ -108,7 +111,22 @@ import StatCurrentTime from "./StatCurrentTime";
         font-size: 24px;
     }
     .quick-access-buttons {
-
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+    .quick-access-button {
+        height: 32px;
+        border-radius: 32px;
+        border: none;
+        background-color: #e0c2bb;
+        transition: background-color linear 250ms;
+        color: inherit;
+        font-size: 15px;
+        font-family: inherit;
+    }
+    .quick-access-button:hover {
+        background-color: rgb(236, 221, 216);
     }
     .stats-entry {
         display: flex;
@@ -300,6 +318,7 @@ import StatCurrentTime from "./StatCurrentTime";
         width: 95vw;
         max-width: 800px;
         height: 533px;
+        animation: 5s ease-in-out 1s infinite alternate rotate-postcard;
     }
     .introduction-container {
         width: 100vw;
@@ -320,6 +339,15 @@ import StatCurrentTime from "./StatCurrentTime";
         display: block;
     }
 
+    @keyframes rotate-postcard {
+        from {
+            transform: rotate(-2deg);
+        }
+        to {
+            transform: rotate(2deg);
+        }
+    }
+
 	@media (max-width: 1700px) {
         .introduction-margin {
             width: 100vw;
@@ -331,6 +359,7 @@ import StatCurrentTime from "./StatCurrentTime";
     }
     @media (max-width: 900px) {
         .postcard {
+            animation: none;
             transform: rotate(0);
             height: auto;
             min-height: 533px;

@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "xendywebsite",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -16,5 +16,9 @@
     "motion": "^11.13.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
+  },
+  "prettier": {
+    "tabWidth": 4,
+    "printWidth": 999999999999999
   }
 }

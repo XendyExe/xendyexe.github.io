@@ -1,0 +1,36 @@
+---
+const props = Astro.props;
+const width = 2000;
+const height = 2000 + props.parallax;
+const starSizeMult = props.size;
+const color = "white";
+const starCount = width * height * props.starDensity;
+if (starCount > 10000) throw "Star count is over 10000! Are you sure you want to render this??";
+
+const starData = [];
+for (let i = 0; i < starCount; i++) {
+    starData.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        r: Math.random() * starSizeMult + 0.01,
+    });
+}
+---
+
+<div class="star-container xendy-parallax" style={`--xendy-parallax: ${-props.parallax}px`}>
+    <svg width={width} height={height} viewBox={`0 0 ${width} ${height}`} style={{ opacity: props.opacity, minWidth: `${width}px` }}>
+        {starData.map((star) => <circle cx={star.x} cy={star.y} r={star.r} fill={color} />)}
+    </svg>
+</div>
+<style>
+    .star-container {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+    }
+    .star-svg {
+        width: 100vw;
+        height: auto;
+    }
+</style>

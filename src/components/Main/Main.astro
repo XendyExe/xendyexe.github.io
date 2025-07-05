@@ -1,32 +1,44 @@
 ---
 import Background from "./Background/Background.astro";
-import SplashComponent from './Splash/SplashComponent';
+import SplashComponent from "./Splash/SplashComponent";
 import BackgroundCloud from "./Background/BackgroundCloud.astro";
 import Postcard from "./Postcard/Postcard.astro";
 ---
 
 <div class="main">
-    <Background/>
-    <div class="content"> 
-        <SplashComponent client:load/>
+    <Background />
+    <div class="content">
+        <SplashComponent client:load />
         <div style="width:100vw;height:30vh;background-color:#ffe08c;display:flex;align-items:center;color:black;flex-direction:column;justify-content: center;">
             <div style="font-size:50px;text-align:center;">This website is still UNDER DEVELOPMENT</div>
-            <div style="text-align:center;">like nothing is done ;w;<br/>Keep that in mind if you are looking !</div>
+            <div style="text-align:center;">like nothing is done ;w;<br />Keep that in mind if you are looking !</div>
         </div>
-        <Postcard/>
+        <Postcard />
         <!-- todo: music thing -->
-        <div style="width:100vw;height:70vh;border:2px red solid;"/>
+        <div style="width:100vw;height:70vh;border:2px red solid;"></div>
         <!-- todo: Coding thing -->
-        <div style="width:100vw;height:100vh;border:2px pink solid;"/>
+        <div style="width:100vw;height:100vh;border:2px pink solid;"></div>
         <!-- todo: art thing -->
-        <div style="width:100vw;height:100vh;border:2px purple solid;"/>
+        <div style="width:100vw;height:100vh;border:2px purple solid;"></div>
         <div class="footer"></div>
     </div>
 </div>
 
 <style is:global>
+    @keyframes xendy-parallax-keyframes {
+        from {
+            transform: translateY(0);
+        }
+        to {
+            transform: translateY(var(--xendy-parallax, 0));
+        }
+    }
+    .xendy-parallax {
+        animation: xendy-parallax-keyframes linear;
+        animation-timeline: scroll();
+        animation-fill-mode: both;
+    }
     .debug {
-
     }
     .footer {
         height: 30vh;
@@ -35,20 +47,20 @@ import Postcard from "./Postcard/Postcard.astro";
         background-color: #000000;
         z-index: 0;
     }
-	* {
-		box-sizing: border-box
-	}
+    * {
+        box-sizing: border-box;
+    }
     .main {
-        color:white;
+        color: white;
     }
     .content {
         overflow-x: hidden;
     }
     .splash {
         --framing-padding: 2rem;
-        width: 100%;    
+        width: 100%;
         height: 100vh;
-        position:relative;
+        position: relative;
         display: flex;
         justify-content: center;
         align-content: center;
@@ -60,16 +72,16 @@ import Postcard from "./Postcard/Postcard.astro";
     }
 
     .splash-bottom-left-framing {
-        color:#FFEDAD;
-        position:absolute;
+        color: #ffedad;
+        position: absolute;
         bottom: var(--framing-padding);
         left: var(--framing-padding);
     }
     .splash-top-right-framing {
         align-self: center;
-        margin: auto; 
+        margin: auto;
         rotate: 180deg;
-        position:absolute;
+        position: absolute;
         top: var(--framing-padding);
         right: var(--framing-padding);
     }

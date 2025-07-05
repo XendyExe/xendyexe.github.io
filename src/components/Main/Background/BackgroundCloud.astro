@@ -1,4 +1,6 @@
 ---
+import { union } from "astro:schema";
+
 const props = Astro.props;
 
 const classList = props.classList ? props.classList : "";
@@ -13,6 +15,7 @@ const r = props.r;
 const a = props.a;
 const blur = props.blur * scalingFactor;
 const unit = classList == "postcard-cloud" ? "px" : "vmin";
+const parallax = props.parallax ? props.parallax : 0;
 const parentStyles = {
     width: `0px`,
     height: `0px`,
@@ -26,6 +29,10 @@ const styles = {
     opacity: `${a}%`,
     backgroundColor: `${color}`,
     objectFit: "none"
+}
+if (props.parallax) {
+    // @ts-ignore
+    styles["--xendy-parallax"] = `${props.parallax}px`
 }
 ---
 
@@ -41,5 +48,4 @@ const styles = {
         -webkit-mask-repeat: no-repeat;
         -webkit-mask-size: 100% 100%;
     }
-
 </style>
