@@ -1,0 +1,102 @@
+---
+// Props like your React component
+const { url, name, primary, selection, iconNormal, iconSelected, icon, viewbox } = Astro.props;
+
+const sizePx = 60;
+const sizeIcon = 0.85;
+const sizeIcon2 = 0.86;
+const iconCenter = (1 - sizeIcon) / 2;
+const iconCenter2 = (1 - sizeIcon2) / 2;
+const size = `${sizePx}px`;
+---
+
+<a class="splash-button" href={url} target="_blank" rel="noopener noreferrer" aria-label={name} style={`--size: ${size}; --size-px: ${sizePx}px; --primary: ${primary}; --selection: ${selection}; --icon-normal: ${iconNormal}; --icon-selected: ${iconSelected};`}>
+    <div class="background-overlay"></div>
+
+    <div class="icon-selected-wrapper">
+        <svg class="icon-selected" viewBox={viewbox} xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+            <Fragment set:html={`<g>${icon}</g>`} />
+        </svg>
+    </div>
+
+    <div class="icon-normal-wrapper">
+        <svg class="icon-normal" viewBox={viewbox} xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+            <Fragment set:html={`<g>${icon}</g>`} />
+        </svg>
+    </div>
+</a>
+
+<style>
+    a.splash-button {
+        display: inline-block;
+        width: var(--size);
+        height: var(--size);
+        border-radius: var(--size);
+        background-color: var(--primary);
+        overflow: hidden;
+        position: relative;
+        cursor: pointer;
+        transition: transform 0.2s ease;
+    }
+
+    a.splash-button:hover {
+        transform: scale(1.1);
+    }
+
+    /* Sliding background overlay */
+    .background-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: calc(var(--size) + 5px);
+        height: calc(var(--size) + 5px);
+        background-color: var(--selection);
+        transform: translateY(var(--slide-y, 60px));
+        transition: transform 0.2s ease-in-out;
+        z-index: 0;
+    }
+
+    a.splash-button:hover .background-overlay {
+        transform: translateY(0);
+    }
+
+    /* Selected icon container, clip-path sliding */
+    .icon-selected-wrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: var(--size);
+        height: var(--size);
+        z-index: 2;
+        clip-path: inset(var(--clip-top, 60px) 0 0 0);
+        transition: clip-path 0.2s ease-in-out;
+    }
+    a.splash-button:hover .icon-selected-wrapper {
+        clip-path: inset(0 0 0 0);
+    }
+
+    /* Normal icon container */
+    .icon-normal-wrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: var(--size);
+        height: var(--size);
+        z-index: 1;
+    }
+
+    /* Icon positioning */
+    svg.icon-normal {
+        width: calc(var(--size-px) * 0.85);
+        height: calc(var(--size-px) * 0.85);
+        fill: var(--icon-normal);
+        transform: translate(calc(var(--size-px) * 0.075), calc(var(--size-px) * 0.075));
+    }
+
+    svg.icon-selected {
+        width: calc(var(--size-px) * 0.86);
+        height: calc(var(--size-px) * 0.86);
+        fill: var(--icon-selected);
+        transform: translate(calc(var(--size-px) * 0.07), calc(var(--size-px) * 0.07));
+    }
+</style>
