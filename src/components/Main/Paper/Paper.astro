@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import PaperTrans from "@assets/paper-trans.png"
+import PaperContent from "./PaperContent.astro";
 ---
 
 <div class="paper-container"> 
@@ -8,6 +9,8 @@ import PaperTrans from "@assets/paper-trans.png"
         <div class="paper-background">
             <Image src={PaperTrans} quality={90} alt="Paper transition"/>
             <div class="background-solid">
+                <div class="blot-container"/>
+                <PaperContent/>
             </div>
         </div>
     </div>
@@ -16,27 +19,32 @@ import PaperTrans from "@assets/paper-trans.png"
 <style>
     .paper-container {
         width: 100%;
-        min-height: 100vh;
     }
     .paper-background {
         width: 100%;
         margin-top: -350px;
     }
     .paper-background img {
-        width: 100%;
+        width: 100vw;
         height: auto;
         display: block;
+        user-drag: none;
+        -webkit-user-drag: none;
+        user-select: none;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
     }
     .paper-background-rendering{
-        width: 100vw;
+        width: 100%;
     }
     .background-solid {
-        width: 100%;
-        min-height: 100vh;
+        width: 100vw;
         background-color: #f7eded;
-        background-image: radial-gradient(circle, #d0cbcc 0%, #d0cbcc 12%, transparent 13%);
+        background-image: radial-gradient(circle, #d0cbcc 0%, #d0cbcc 5%, transparent 7%);
         background-size: calc(100vw/48) calc(100vw/48);
-        transform: translate(0, calc(-100vw/128));
+        margin-top: calc(-100vw/40);
+        padding-bottom: 64px;
         z-index: 1;
         bottom: 0;
         top: 0;
