@@ -3,10 +3,6 @@
 const { url, name, primary, selection, iconNormal, iconSelected, icon, viewbox } = Astro.props;
 
 const sizePx = 60;
-const sizeIcon = 0.85;
-const sizeIcon2 = 0.86;
-const iconCenter = (1 - sizeIcon) / 2;
-const iconCenter2 = (1 - sizeIcon2) / 2;
 const size = `${sizePx}px`;
 ---
 
@@ -43,7 +39,6 @@ const size = `${sizePx}px`;
         transform: scale(1.1);
     }
 
-    /* Sliding background overlay */
     .background-overlay {
         position: absolute;
         top: 0;
@@ -60,7 +55,6 @@ const size = `${sizePx}px`;
         transform: translateY(0);
     }
 
-    /* Selected icon container, clip-path sliding */
     .icon-selected-wrapper {
         position: absolute;
         top: 0;
@@ -75,7 +69,6 @@ const size = `${sizePx}px`;
         clip-path: inset(0 0 0 0);
     }
 
-    /* Normal icon container */
     .icon-normal-wrapper {
         position: absolute;
         top: 0;
@@ -84,8 +77,6 @@ const size = `${sizePx}px`;
         height: var(--size);
         z-index: 1;
     }
-
-    /* Icon positioning */
     svg.icon-normal {
         width: calc(var(--size-px) * 0.85);
         height: calc(var(--size-px) * 0.85);

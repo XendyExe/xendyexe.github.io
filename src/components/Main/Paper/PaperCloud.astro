@@ -3,9 +3,7 @@ import { union } from "astro:schema";
 
 const props = Astro.props;
 
-const classList = props.classList ? props.classList : "";
-let usePx = classList == "postcard-cloud" || classList == "paper-cloud";
-const scalingFactor =(usePx ? 10 : 1)/9.53;
+const scalingFactor =10/9.53;
 
 const color = props.color;
 const width = props.width * scalingFactor;
@@ -15,12 +13,18 @@ const y = props.y * scalingFactor;
 const r = props.r;
 const a = props.a;
 const blur = props.blur * scalingFactor;
-let unit = usePx ? "px" : "vmin";
-// this is dumb
+let unit = "px";
+let filter = `blur(${blur}${unit})`
+if (props.shadow) {
+    filter += ` drop-shadow(${props.shadow})`
+}
+// if (props.redraw) {
+//     for (let i = 0; i < props.redraw; i++) filter += `drop-shadow(0px 0px 0px ${color})`
+// }
 const parentStyles = {
     width: `0px`,
     height: `0px`,
-    filter: `blur(${blur}${unit})`
+    filter: filter
 }
 const styles = {
     position: "absolute",
@@ -31,20 +35,16 @@ const styles = {
     backgroundColor: `${color}`,
     objectFit: "none"
 }
-if (props.parallax) {
-    // @ts-ignore
-    parentStyles["--xendy-parallax"] = `${-props.parallax}px`
-}
 if (props.blending) {
     // @ts-ignore
     parentStyles["mix-blend-mode"] = props.blending
 }
 ---
 
-<div style={parentStyles} class={classList} id="CLOUD"><div class="cloudImage" style={styles}></div></div>
+<div style={parentStyles} class="cloudparent" id="PAPER_CLOUD"><div class="cloudImage" style={styles}></div></div>
 <style>
     .cloudImage {
-        --mask-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAAoCAMAAACGsik5AAAAAXNSR0IArs4c6QAAABhQTFRFR3BMAAAAAAAAAAAAAAAAAAAAAAAAAAAAaALUywAAAAd0Uk5TAGOPr9rr+QRPacUAAADwSURBVHjavdHRqoMwEEXRPRNzzv//8aXaAUFjk3LpflGYWRqRIxubxbzHYv+MDLUA5Mz5JLkBtGNsn8xAWZLleqy6zTnfMUnat71fumyfSXV50RGuFpD8Lqj6dovwNartPNWjMQzmY1NDX+dIQ2MF6jLXgR8CbU2OFQSob5JXAnr3F0iSV5G8GmBp2UChHxwwc5ElAF6LvfwG4dlSCbMI+VUHJpB2Ujswq8RemJxE6jL3hUfRzSoiGsPk27bgodOeW2t+hVs2PirZzt7fKFsGzxUKwAeKSOZUK6SIgM9K578fDZhSRN2SwVTNUMoP3/MHyOQg8pOemIAAAAAASUVORK5CYII=');
+        --mask-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAAkCAMAAADxcOlCAAAAAXNSR0IArs4c6QAAABJQTFRFR3BMAAAAAAAAAAAAAAAAAAAAVmCI5wAAAAV0Uk5TAGOi3fcmSwu/AAAAsUlEQVR42p3RQYoDMQwF0R+76v5XHuiQSYMSR3ZtxZPATj81zRDHZZ5IyyrrelATr5haTGGIqng1UQtR66F7LVTNI//xEcXa5ylL49fpwugX48pIAljDRZlM2EXAxL0CE9hGiHsluF0iBygcmOQIjXGAkhOTcYKyY/ooqDqTDsL7IyddRa4eZnTR1NTWKJhdlFXsmHppOsZ4CpOGQg280O9e6H03XXVDpKfK7ze6bV+aP47+Ft2xQ+9DAAAAAElFTkSuQmCC');
         mask-image: var(--mask-image);
         mask-repeat: no-repeat; 
         mask-size: 100% 100%;  

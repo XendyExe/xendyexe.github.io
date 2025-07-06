@@ -3,6 +3,7 @@ import Background from "./Background/Background.astro";
 import SplashComponent from "./Splash/SplashComponent.astro";
 import BackgroundCloud from "./Background/BackgroundCloud.astro";
 import Postcard from "./Postcard/Postcard.astro";
+import Paper from "./Paper/Paper.astro";
 ---
 
 <div class="main">
@@ -23,9 +24,7 @@ import Postcard from "./Postcard/Postcard.astro";
         <div style="width:100vw;height:70vh;border:2px red solid;"></div>
         <!-- todo: Coding thing -->
         <div style="width:100vw;height:100vh;border:2px pink solid;"></div>
-        <!-- todo: art thing -->
-        <div style="width:100vw;height:100vh;border:2px purple solid;"></div>
-        <div class="footer"></div>
+        <Paper/>
     </div>
 </div>
 <style> 
@@ -88,6 +87,6 @@ import Postcard from "./Postcard/Postcard.astro";
         color: white;
     }
     .content {
-        overflow-x: hidden;
+        overflow: hidden;
     }
 </style>

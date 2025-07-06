@@ -1,0 +1,44 @@
+---
+import { Image } from "astro:assets";
+import PaperTrans from "@assets/paper-trans.png"
+---
+
+<div class="paper-container"> 
+    <div class="paper-background-rendering">
+        <div class="paper-background">
+            <Image src={PaperTrans} quality={90} alt="Paper transition"/>
+            <div class="background-solid">
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .paper-container {
+        width: 100%;
+        min-height: 100vh;
+    }
+    .paper-background {
+        width: 100%;
+        margin-top: -350px;
+    }
+    .paper-background img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+    .paper-background-rendering{
+        width: 100vw;
+    }
+    .background-solid {
+        width: 100%;
+        min-height: 100vh;
+        background-color: #f7eded;
+        background-image: radial-gradient(circle, #d0cbcc 0%, #d0cbcc 12%, transparent 13%);
+        background-size: calc(100vw/48) calc(100vw/48);
+        transform: translate(0, calc(-100vw/128));
+        z-index: 1;
+        bottom: 0;
+        top: 0;
+    }
+</style>
