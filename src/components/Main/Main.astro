@@ -8,7 +8,7 @@ import Paper from "./Paper/Paper.astro";
 
 <div class="main">
     <Background />
-    <div class="content">
+    <main>
         <SplashComponent/>
         <div class="firefox-warning">
             <div class="firefox-title">This website is worse on Firefox</div>
@@ -26,8 +26,21 @@ import Paper from "./Paper/Paper.astro";
         <div style="width:100vw;height:100vh;border:2px pink solid;"></div>
         <Paper/>
     </div>
+    <footer>
+
+    </footer>
 </div>
 <style> 
+    main {
+        overflow: hidden;
+    }
+    footer {
+        height: 256px;
+        width: 100%;
+        overflow: hidden;
+        background-color: black;
+        margin-top: calc(-100vw/120);
+    }
     .firefox-warning {
         width: 100vw;
         min-height: 10vh;
@@ -85,8 +98,5 @@ import Paper from "./Paper/Paper.astro";
     }
     .main {
         color: white;
-    }
-    .content {
-        overflow: hidden;
     }
 </style>
