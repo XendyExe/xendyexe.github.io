@@ -1,20 +1,59 @@
 ---
+import { Image } from "astro:assets";
+import art from "@assets/art/fomx.png";
 ---
 <div class="paper-content">
     <div class="paper-title"><span>Arts !</span></div>
     <div class="flex">
         <div class="drawing-container">
             <div class="d-title"><span>Drawing</span></div>
-
+            <div class="d-description">
+                I draw sometimes using photoshop and ibis (on phone). Mostly anthro ocs/sonas !
+            </div>
+            <div class="image-cycler" id="image-cycler">
+                <Image src={art} alt="fomx"/>
+                <Image src={art} alt="fomx"/>
+            </div>
+            <div class="cycler-tooltip">(Click to cycle)</div>
         </div>
-        <div class="seperator"/>
         <div class="motion-graphics-container">
             <div class="mg-title"><span>Motion Graphics</span></div>
-
+            <div class="mg-description">
+                I also do motion graphics sometimes in after effects, along with editing in premiere pro.
+            </div>
         </div>
     </div>
 </div>
+
+<script>
+    console.log("doing image cycler thingies");
+    const cycler = document.getElementById("image-cycler");
+    if (!cycler) throw "Couldnt find image cycler !!";
+
+    function calculate() {
+        let rotation = 0;
+        for (let i = 0; i < cycler!.children.length; i++) {
+            const image = cycler!.children
+        }
+    }
+    cycler.onclick = () => {
+        console.log("cycling image");
+    }
+</script>
 <style>
+    .image-cycler img {
+        grid-area: 1 / 1;
+        width: 100%;
+        height: auto;
+    }
+    .image-cycler {
+        display: grid;
+        width: 100%;
+        place-items: center;
+        height: auto;
+        background-color: black;
+        margin-top: 16px;
+    }
     .flex {
         width: 100%;
         display: flex;
@@ -24,6 +63,12 @@
         max-width: 1036px;
         flex-wrap: wrap;
         scrollbar-gutter: stable;
+    }
+    @media (max-width: 650px) {
+        .flex {
+            justify-content: center;
+        }
+        
     }
     .drawing-container, .motion-graphics-container {
         min-width: 300px;
@@ -57,6 +102,7 @@
         background-image: linear-gradient(45deg,#9a6cc6 0%, #3461c0 34%, #a26cb8 72%, #fb947e 100%);
     }
     .paper-title span {
+        position: relative;
         color: transparent;
         background-clip: text;
         background-image: linear-gradient(90deg,#9a6cc6 0%, #3461c0 34%, #a26cb8 72%, #fb947e 100%);
@@ -70,7 +116,7 @@
         align-items: center;
         text-align: center;
         flex-direction: column;
-        z-index: 5;
+        z-index: 50;
         position: relative;
     }
 

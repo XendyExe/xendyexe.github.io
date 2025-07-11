@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 import PaperTrans from "@assets/paper-trans.png"
 import PaperContent from "./PaperContent.astro";
+import PaperBlots from "./PaperBlots.astro";
 ---
 
 <div class="paper-container"> 
@@ -9,7 +10,14 @@ import PaperContent from "./PaperContent.astro";
         <div class="paper-background">
             <Image src={PaperTrans} quality={90} alt="Paper transition"/>
             <div class="background-solid">
-                <div class="blot-container"/>
+                <div class="blot-container">
+                    <div class="left-anchor">
+                        <PaperBlots blot={2} x={-100} y={0} r={20} a={50} color="#ff7aac"/>
+                    </div>
+                    <div class="right-anchor">
+                        <PaperBlots blot={52} x={0} y={0} r={0} a={50} color="#ff7aac" r_="y"/>
+                    </div>
+                </div>
                 <PaperContent/>
             </div>
         </div>
@@ -17,6 +25,24 @@ import PaperContent from "./PaperContent.astro";
 </div>
 
 <style>
+    .left-anchor, .right-anchor {
+        color: black;
+    }
+    .left-anchor {
+        width: 0;
+        height: 0;
+    }
+    .right-anchor {
+        width: 0;
+        height: 0;
+        transform-origin: top right;
+    }
+    .blot-container {
+        width: 100%;
+        height: 0;
+        display: flex;
+        justify-content: space-between;
+    }
     .paper-container {
         width: 100%;
     }
