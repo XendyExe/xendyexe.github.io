@@ -10,16 +10,16 @@ if (starCount > 10000) throw "Star count is over 10000! Are you sure you want to
 const starData = [];
 for (let i = 0; i < starCount; i++) {
     starData.push({
-        x: Math.random() * width,
-        y: Math.random() * height,
-        r: Math.random() * starSizeMult + 0.01,
+        x: (Math.random() * width).toFixed(2),
+        y: (Math.random() * height).toFixed(2),
+        r: (Math.random() * starSizeMult + 0.01).toFixed(2),
     });
 }
 ---
 
 <div class="star-container xendy-parallax" style={`--xendy-parallax: ${-props.parallax}px`}>
-    <svg width={width} height={height} viewBox={`0 0 ${width} ${height}`} style={{ opacity: props.opacity, minWidth: `${width}px` }}>
-        {starData.map((star) => <circle cx={star.x} cy={star.y} r={star.r} fill={color} />)}
+    <svg class="star-svg" width={width} height={height} viewBox={`0 0 ${width} ${height}`} style={{ opacity: props.opacity, minWidth: `${width}px`, color: `white` }} fill="white">
+        {starData.map((star) => <circle cx={star.x} cy={star.y} r={star.r}/>)}
     </svg>
 </div>
 <style>
@@ -29,8 +29,9 @@ for (let i = 0; i < starCount; i++) {
         justify-content: center;
         align-content: center;
     }
-    .star-svg {
-        width: 100vw;
-        height: auto;
+
+    .star-svg circle {
+        opacity: 0;
+        animation: fadein 2s ease-out forwards;
     }
 </style>

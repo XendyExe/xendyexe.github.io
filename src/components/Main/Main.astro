@@ -11,9 +11,9 @@ import Paper from "./Paper/Paper.astro";
     <main>
         <SplashComponent/>
         <div class="firefox-warning">
-            <div class="firefox-title">This website is worse on Firefox</div>
+            <div class="firefox-title">Unsupported browser</div>
             <div class="firefox-subtitle">Best experianced with a Chromium based browser</div>
-            <div class="firefox-subtitle">Firefox's is missing capabilities like scroll() by default.</div>
+            <div class="firefox-subtitle">Your browser is missing scroll() css animations</div>
         </div>
         <div style="width:100vw;height:30svh;background-color:#ffe08c;display:flex;align-items:center;color:black;flex-direction:column;justify-content: center;">
             <div style="font-size:50px;text-align:center;">This website is still UNDER DEVELOPMENT</div>
@@ -57,7 +57,7 @@ import Paper from "./Paper/Paper.astro";
     .firefox-title {
         font-size: 32px;
     }
-    @supports (-moz-appearance: none) {
+    @supports not (animation-timeline: scroll()) {
         .firefox-warning {
             display: flex;
         }
@@ -98,5 +98,14 @@ import Paper from "./Paper/Paper.astro";
     }
     .main {
         color: white;
+    }
+    
+    @keyframes fadein {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
     }
 </style>

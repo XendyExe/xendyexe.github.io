@@ -12,24 +12,22 @@ const StatCurrentTime: React.FC = () => {
             const updateTime = () => {
                 const now = new Date();
 
-                // Format the time in hh:mm:ss AM/PM
                 const timeFormatter = new Intl.DateTimeFormat(undefined, {
                     hour: "2-digit",
                     minute: "2-digit",
                     second: "2-digit",
                     hour12: true,
+                    timeZone: "America/Los_Angeles"
                 });
                 const formattedTime = timeFormatter.format(now);
 
-                // Get time zone abbreviation (e.g., PST, PDT)
                 const timeZoneFormatter = new Intl.DateTimeFormat(undefined, {
                     timeZoneName: "short",
                 });
                 const parts = timeZoneFormatter.formatToParts(now);
                 const tzAbbr = parts.find((part) => part.type === "timeZoneName")?.value || "";
 
-                // Get UTC offset in hours (e.g., -08:00)
-                const offsetMinutes = now.getTimezoneOffset(); // in minutes, negative means ahead of UTC
+                const offsetMinutes = now.getTimezoneOffset(); 
                 const offsetHours = -Math.floor(offsetMinutes / 60);
                 const offsetLabel = `(UTC${offsetHours >= 0 ? "+" : ""}${offsetHours})`;
 

@@ -41,8 +41,11 @@ if (props.blending) {
 }
 ---
 
-<div style={parentStyles} class={classList} id="CLOUD"><div class="cloudImage" style={styles}></div></div>
+<div style={parentStyles} class={classList} id="CLOUD"><div class="cloud-fadein"><div class="cloudImage" style={styles}></div></div></div>
 <style>
+    .cloud-fadein {
+        animation: fadein forwards 2s;
+    }
     .cloudImage {
         --mask-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAAoCAMAAACGsik5AAAAAXNSR0IArs4c6QAAABhQTFRFR3BMAAAAAAAAAAAAAAAAAAAAAAAAAAAAaALUywAAAAd0Uk5TAGOPr9rr+QRPacUAAADwSURBVHjavdHRqoMwEEXRPRNzzv//8aXaAUFjk3LpflGYWRqRIxubxbzHYv+MDLUA5Mz5JLkBtGNsn8xAWZLleqy6zTnfMUnat71fumyfSXV50RGuFpD8Lqj6dovwNartPNWjMQzmY1NDX+dIQ2MF6jLXgR8CbU2OFQSob5JXAnr3F0iSV5G8GmBp2UChHxwwc5ElAF6LvfwG4dlSCbMI+VUHJpB2Ujswq8RemJxE6jL3hUfRzSoiGsPk27bgodOeW2t+hVs2PirZzt7fKFsGzxUKwAeKSOZUK6SIgM9K578fDZhSRN2SwVTNUMoP3/MHyOQg8pOemIAAAAAASUVORK5CYII=');
         mask-image: var(--mask-image);
