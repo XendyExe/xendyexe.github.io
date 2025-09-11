@@ -4,6 +4,7 @@ import SplashComponent from "./Splash/SplashComponent.astro";
 import BackgroundCloud from "./Background/BackgroundCloud.astro";
 import Postcard from "./Postcard/Postcard.astro";
 import Paper from "./Paper/Paper.astro";
+import Music from "./Music/Music.astro";
 ---
 
 <div class="main">
@@ -15,15 +16,11 @@ import Paper from "./Paper/Paper.astro";
             <div class="firefox-subtitle">Best experianced with a Chromium based browser</div>
             <div class="firefox-subtitle">Your browser is missing scroll() css animations</div>
         </div>
-        <div style="width:100vw;height:30svh;background-color:#ffe08c;display:flex;align-items:center;color:black;flex-direction:column;justify-content: center;">
-            <div style="font-size:50px;text-align:center;">This website is still UNDER DEVELOPMENT</div>
-            <div style="text-align:center;">like nothing is done ;w;<br/>Keep that in mind if you are looking !</div>
-        </div>
         <Postcard />
         <!-- todo: music thing -->
-        <div style="width:100vw;height:70svh;border:2px red solid;"></div>
+        <Music/>
         <!-- todo: Coding thing -->
-        <div style="width:100vw;height:100svh;border:2px pink solid;"></div>
+        <div id="programmings" style="width:100vw;height:100svh;border:2px pink solid;"></div>
         <Paper/>
     </div>
     <footer>

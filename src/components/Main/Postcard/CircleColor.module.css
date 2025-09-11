@@ -1,0 +1,47 @@
+.colorCircle {
+    background-color: var(--color);
+    width: calc(var(--radius) * 2);
+    height: calc(var(--radius) * 2);
+    border: 3px solid #ba988f;
+    border-radius: var(--radius);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: inherit;
+    position: relative; /* important for tooltip positioning */
+    z-index: 10;
+    cursor: pointer;
+}
+
+.tooltip {
+    position: absolute;
+    bottom: 130%; /* place it above the button */
+    opacity: 0;
+    transform: translateY(10px) scale(0.8);
+    color: #655c57;
+    font-weight: bold;
+    background-color: #e0c2bb;
+    padding: 4px 6px;
+    border-radius: 4px;
+    white-space: nowrap;
+    pointer-events: none; /* prevents mouse interaction */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    display: flex;
+    justify-content: center;
+}
+
+.colorCircle:hover .tooltip,
+.colorCircle:focus .tooltip,
+.colorCircle.active .tooltip {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.arrow {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    rotate: 45deg;
+    top: 20px;
+    background-color: #e0c2bb;
+}

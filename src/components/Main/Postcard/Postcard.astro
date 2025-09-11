@@ -3,6 +3,7 @@ import { Image } from "astro:assets";
 import BackgroundCloud from "../Background/BackgroundCloud.astro";
 import Stamp from "@assets/stamp.png";
 import StatCurrentTime from "./StatCurrentTime";
+import CircleColor from "./CircleColor";
 ---
 <div id="postcard-main" class="introduction-container">
     <div class="introduction-margin">
@@ -50,7 +51,7 @@ import StatCurrentTime from "./StatCurrentTime";
                                 </div>
                                 <div class="stats-row" role="row">
                                     <div class="stats-entry stats-label" role="cell">Gender</div>
-                                    <div class="stats-entry stats-value" role="cell"><span>Female <a class="stats-other" href="https://en.pronouns.page/@Xendy" target="_blank">(pronouns.page)</a></span></div>
+                                    <div class="stats-entry stats-value" role="cell"><span>Female <a class="stats-other" href="https://en.pronouns.page/@Xendy" target="_blank">(she/her)</a></span></div>
                                 </div>
                                 <div class="stats-row" role="row">
                                     <div class="stats-entry stats-label" role="cell">Location</div>
@@ -61,31 +62,35 @@ import StatCurrentTime from "./StatCurrentTime";
                                     <div class="stats-entry stats-value" role="cell"><StatCurrentTime client:load/></div>
                                 </div>
                                 <div class="stats-row" role="row">
-                                    <div class="stats-entry stats-label" role="cell">meow asdf</div>
-                                    <div class="stats-entry stats-value" role="cell">data</div>
+                                    <div class="stats-entry stats-label" role="cell">16p test</div>
+                                    <div class="stats-entry stats-value" role="cell"><a href="https://www.16personalities.com/infp-personality" target="_blank">INFP-T</a></div>
                                 </div>
+
                                 <div class="stats-row" role="row">
-                                    <div class="stats-entry stats-label" role="cell">meow asdf</div>
-                                    <div class="stats-entry stats-value" role="cell">data</div>
+                                    <div class="stats-entry stats-label" role="cell">Colors</div>
+                                    <div class="stats-entry stats-value" role="cell" style="display: flex; justify-content: space-evenly;">
+                                        <CircleColor color="#d13b68" client:load/>
+                                        <CircleColor color="#ff7aac" client:load/>
+                                        <CircleColor color="#ffbacf" client:load/>
+                                        <CircleColor color="#ffa5c9" client:load/>
+                                        <CircleColor color="#add8ff" client:load/>
+                                    </div>
                                 </div>
-                                <div class="stats-row" role="row">
-                                    <div class="stats-entry stats-label" role="cell">meow asdf</div>
-                                    <div class="stats-entry stats-value" role="cell">data</div>
-                                </div>
-                            </div>
+                        </div>
+                        <div class="stats-dumb-seperator"/>
                         </div>
                         <div class="seperator"/>
                         <div class="quick-access">
                             <div class="blurb">
-                                hii~ im a silly pink fox on the internet
+                                hii~ im a silly pink fox on the internet. i do programming and arts and stuffs, cycling between each one because my brain is a bit silly. 
                             </div>
                             <div class="quick-access-seperator"/>
                             <div class="actual-quick-access">
                                 <div class="quick-access-title">Quick Access:</div>
                                 <div class="quick-access-buttons">
-                                    <button class="quick-access-button">music things</button>
-                                    <button class="quick-access-button">programming things</button>
-                                    <button class="quick-access-button">arts things</button>
+                                    <button class="quick-access-button" onclick="document.getElementById('musics').scrollIntoView({'behavior': 'smooth'})">music things</button>
+                                    <button class="quick-access-button" onclick="document.getElementById('programmings').scrollIntoView({'behavior': 'smooth'})">programming things</button>
+                                    <button class="quick-access-button" onclick="document.getElementById('arts').scrollIntoView({'behavior': 'smooth', 'block': 'end'})">arts things</button>
                                 </div>
                             </div>
                         </div>
@@ -103,6 +108,12 @@ import StatCurrentTime from "./StatCurrentTime";
     }
 </style>
 <style>
+    a {
+        color: #655c57;
+    }
+    a:hover {
+        color: #857c78;
+    }
     .quick-access-title {
         width: 100%;
         text-align: center;
@@ -148,6 +159,11 @@ import StatCurrentTime from "./StatCurrentTime";
         border: 2px solid #ba988f;
     }
 
+    .stats-dumb-seperator {
+        height: 16px;
+        width: 16px;
+    }
+
     .stats-row {
         display: contents;
     }
@@ -184,12 +200,10 @@ import StatCurrentTime from "./StatCurrentTime";
     .stats {
         width: 100%;
         max-width: 340px;
-        height: 320px;
+        height: 336px;
         display: flex;
         flex-direction: column;
         align-items: center;
-        overflow-y: hidden;
-        overflow-x: hidden;
     }
     .seperator {
         flex: 0 0 auto;
@@ -383,7 +397,7 @@ import StatCurrentTime from "./StatCurrentTime";
         }
         .stats, .quick-access {
             width: 100%;
-            min-height: 320px;
+            min-height: 336px;
         }
     }
     @media (max-width: 540px) {
