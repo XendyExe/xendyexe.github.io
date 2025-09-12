@@ -12,13 +12,18 @@
     "@astrojs/react": "^4.3.0",
     "@types/react": "^18.3.14",
     "@types/react-dom": "^18.3.2",
+    "amf": "^0.1.0",
     "astro": "^5.13.5",
     "motion": "^11.13.1",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-dropzone": "^14.3.8"
   },
   "prettier": {
     "tabWidth": 4,
     "printWidth": 999999999999999
+  },
+  "devDependencies": {
+    "@types/node": "^24.3.2"
   }
 }

@@ -1,0 +1,82 @@
+---
+import Layout from "src/layouts/Layout.astro";
+import { useState } from "react";
+import Run3SolConverter from "src/components/Run3Convert/Run3SolConverter";
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Run 3 converter</title>
+		<meta content="Run 3 JSON to SOL" property="og:title" />
+		<meta content="Converts json savefiles to sol" property="og:description" />
+		<meta content="https://xendyexe.github.io/run3convert" property="og:url" />
+		<meta content="#ff7aac" data-react-helmet="true" name="theme-color" />
+		<meta name="description" content="Converts run3 json savefiles to sol with the power of pain and suffering">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+	</head>
+	<body>
+        <div class="main-container">
+            <h1 style="text-align: center;">super silly epic converter tool</h1>
+            <Run3SolConverter client:load/>
+        </div>
+	</body>
+</html>
+
+<style is:global>
+	html, body {
+		margin: 0;
+		width: 100%;
+        min-height: 100%;
+		font-family: 'Lexend', Arial, Helvetica, sans-serif;
+        display: flex;
+        justify-content: center;
+        background-color: #181825;
+	}
+
+    .main-container {
+        max-width: 1200px;
+        height: 100%;
+        flex-grow: 1;
+        background-color: #1e1e2e;
+        color: white;
+    }
+
+    .react-container {
+        display: flex;
+        flex-direction: column;
+        padding: 32px;
+    }
+
+    .drag-and-drop {
+        border: 2px dashed #ccc;
+        padding: 10px;
+        text-align: center;
+        margin-bottom: 8px;
+    }
+
+    .drag-and-drop:hover {
+        background-color: #FFFFFF77;
+    }
+
+    .error-container {
+        border: solid white 2px;
+        border-radius: 8px;
+        padding-left: 16px;
+        padding-right: 16px;
+        background-color: #8a0505;
+    }
+
+    .download-button {
+        margin: 16px;
+        height: 64px;
+        font-family: inherit;
+    }
+
+</style>
